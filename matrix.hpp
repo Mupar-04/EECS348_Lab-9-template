@@ -21,6 +21,10 @@ public:
     void swap_rows(std::size_t r1, std::size_t r2);
     void swap_cols(std::size_t c1, std::size_t c2);
     void print_matrix() const;
+
+private:
+    std::vector<std::vector<int>> data;
+    std::size_t size;
 };
 
 #endif // __MATRIX_HPP__
