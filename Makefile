@@ -2,22 +2,26 @@
 CXX = g++
 CXXFLAGS = -std=c++17 -Wall -Wextra
 
-# Target and source files
+# Target and sources
 TARGET = matrix
 SRCS = main.cpp matrix.cpp
 OBJS = $(SRCS:.cpp=.o)
 
-# Default rule
-all: $(TARGET)
+# Default rule: build and run
+all: run
 
-# Link object files to create executable
+# Build executable
 $(TARGET): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
 
-# Compile .cpp to .o
+# Compile source files
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-# Clean up build files
+# Run after building
+run: $(TARGET)
+	./$(TARGET)
+
+# Clean build artifacts
 clean:
 	rm -f $(OBJS) $(TARGET)
